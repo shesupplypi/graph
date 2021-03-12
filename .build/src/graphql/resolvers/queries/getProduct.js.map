@@ -1,0 +1,1 @@
+{"version":3,"file":"getProduct.js","sourceRoot":"","sources":["../../../../../src/graphql/resolvers/queries/getProduct.ts"],"names":[],"mappings":";;;;;AAAA,iEAAwC;AAExC,KAAK,UAAU,UAAU,CAAC,EAAE,EAAE,EAAE;IAC7B,OAAO,kBAAQ,CAAC,QAAQ,CAAC,GAAG,CAAC,EAAE,CAAC,CAAA;AACnC,CAAC;AAED,kBAAe,UAAU,CAAA"}

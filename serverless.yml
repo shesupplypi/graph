@@ -1,0 +1,50 @@
+service: graph
+# app and org for use with dashboard.serverless.com
+app: apollo
+org: shesupplypi
+
+# Check out our docs for more details
+frameworkVersion: '2'
+
+provider:
+   name: aws
+   runtime: nodejs12.x
+   timeout: 15
+   lambdaHashingVersion: 20201221
+   stage: ${opt:stage, 'dev'}
+   region: us-east-1
+   # apiKeys:
+   #   - name: lambdaApolloKey
+   #     value: ${env:APOLLO_LAMBDA_KEY}
+
+# you can add CloudFormation resource templates here
+#resources:
+#  Resources:
+#    NewResource:
+#      Type: AWS::S3::Bucket
+#      Properties:
+#        BucketName: my-new-bucket
+#  Outputs:
+#     NewOutput:
+#       Description: "Description for the output"
+#       Value: "Some output value"
+# inputs:
+#   src: ./
+
+functions:
+   graphql:
+      handler: src/handler.graphqlHandler
+      events:
+         - http:
+              method: post
+              cors: true
+              path: graphql
+         - http:
+              path: graphql
+              method: get
+              cors: true
+
+plugins:
+   - serverless-dotenv-plugin
+   - serverless-offline
+   - serverless-plugin-typescript
